@@ -219,3 +219,25 @@
 # ООООРРРРОРОРРРРРРРРООРОРОРРРРРРРРРРРРРРРРРРРРРРРРРРРРРРР
 # Sample Output 3:
 # 31
+import random
+
+a = int(input("количество кустов черники: "))
+list_1 = []
+
+for i in range(int(a)):
+    list_1.append(random.randint(1, 10))
+
+print(*list_1) 
+count = 0
+max_summa = 0
+summa = 0
+while count < a :
+    for i in range(count - 3, count):
+        summa = list_1[i] + summa
+    count += 1  
+    if max_summa < summa:
+        max_summa = summa 
+    summa = 0
+print(max_summa)           
+      
+  

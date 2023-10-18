@@ -14,4 +14,5 @@ for i in range(len(list_1)):
     if list_1[i] == num:
         count += 1
 
-print(f"число {num} в списке {list_1} встречается {count} раз")        
+print(f"число {num} в списке {list_1} встречается {count} раз") 
+       
