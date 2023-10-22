@@ -65,12 +65,13 @@ for i in range(int(b)):
     list_2.append(random.randint(1, 10)) 
 print(*list_1)    
 print(*list_2)  
-mn_1 = set(list_1)
-mn_2 = set(list_2)
-print(mn_1)    
-print(mn_2) 
-mn_3 = mn_1.intersection(mn_2)
-print(sorted(mn_3))
+# mn_1 = set(list_1)
+# mn_2 = set(list_2)
+# print(mn_1)    
+# print(mn_2) 
+# mn_3 = mn_1.intersection(mn_2)
+# print(sorted(mn_3))
+print(sorted(set(list_1) & set(list_2)))
 
 
 # Задача 24: В фермерском хозяйстве в Карелии выращивают чернику. Она растет на
@@ -99,13 +100,20 @@ print(*list_1)
 count = 0
 max_summa = 0
 summa = 0
+summa_1 = 0
 while count < a :
     for i in range(count - 3, count):
         summa = list_1[i] + summa
     count += 1  
+    print(summa)
     if max_summa < summa:
         max_summa = summa 
     summa = 0
 print(max_summa)           
-      
+print(' ')      
+for i in range(a):
+    if(list_1[i] + list_1[i - 1] + list_1[i - 2]) > summa_1:
+        summa_1 = list_1[i] + list_1[i - 1] + list_1[i - 2] 
+
+print(summa_1)            
   
