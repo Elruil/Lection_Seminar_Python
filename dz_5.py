@@ -32,3 +32,12 @@ def f(a,b):
 print(f(a,b))    
     
     
+    
+a = int(input("Введите первое число: "))
+b = int(input("Введите второе число : "))
+def f(a,b):
+    if b == 0:
+        return a
+    return 1 + f(a,b -1)
+    
+print(f(a,b))        
