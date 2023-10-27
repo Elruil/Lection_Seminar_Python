@@ -59,3 +59,16 @@ def ch(m,x = 2):
     return ch(m, x + 1)
 
 print(ch(m))
+
+# 37
+def revers(g, st):
+    
+    if g < 1:
+        return st
+    return st + revers(g - 1,input("Ведите число: "))
+
+g = int(input("Число "))
+st = ""
+print(revers(g,st))
+
+
