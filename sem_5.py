@@ -65,7 +65,7 @@ def revers(g, st):
     
     if g < 1:
         return st
-    return st + revers(g - 1,input("Ведите число: "))
+    return  revers(g - 1,input("Введите число: ")) + st
 
 g = int(input("Число "))
 st = ""
