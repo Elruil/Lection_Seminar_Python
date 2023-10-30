@@ -146,10 +146,13 @@ anton = "anton"
 
 def letters_only(source):
     result = ""
+    arr =[]
     for j in range(len(source)):
         for i in source[j].lower():
             if i in anton:
                 result += i
-        return result
+                if result == anton:
+                     arr.append(j)                
+        return arr
 
 print(letters_only(s))                        
