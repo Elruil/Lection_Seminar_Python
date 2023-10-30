@@ -71,4 +71,11 @@ g = int(input("Число "))
 st = ""
 print(revers(g,st))
 
-
+s = input("Введите слово для проверки ")
+def pal(s):
+    if len(s) <=1:
+        return True
+    elif s[0] != s[-1]:
+        return False
+    return pal(s[1:-1])
+print(pal(s))
