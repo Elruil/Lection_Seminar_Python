@@ -1,5 +1,32 @@
 import os, re
 
+def printData(data):  
+    phoneBook = []
+    splitLine = "=" * 102
+    print(splitLine) 
+    print(" №  Фамилия        Имя          Номер телефона         Примечания")
+    print(splitLine)
+    personID = 1
+
+    for contact in data:
+        lastName, name, phone, notes = contact.rstrip().split(",")
+        phoneBook.append(
+            {
+                "ID": personID,
+                "Фамилия": lastName,
+                "Имя": name,
+                "телефон": phone_format(phone),
+                "примечания": notes
+            }
+        )
+        personID += 1
+
+    for contact in phoneBook:
+        personID, lastName, name, phone, notes = contact.values()
+        print(f"{personID:>2}. {lastName:<15} {name:<10} -- {phone:<15} {notes:<60}")
+
+    print(splitLine)
+
 
 def phone_format(n): 
     n = n.removeprefix("+")
@@ -7,31 +34,6 @@ def phone_format(n):
     return format(int(n[:-1]), ",").replace(",", "-") + n[-1]
 
 
-def printData(data):  
-    phoneBook = []
-    splitLine = "=" * 49
-    print(splitLine)
-    print(" №  Фамилия        Имя          Номер телефона")
-    print(splitLine)
-    personID = 1
-
-    for contact in data:
-        lastName, name, phone = contact.rstrip().split(",")
-        phoneBook.append(
-            {
-                "ID": personID,
-                "Фамилия": lastName,
-                "Имя": name,
-                "телефон": phone_format(phone),
-            }
-        )
-        personID += 1
-
-    for contact in phoneBook:
-        personID, lastName, name, phone = contact.values()
-        print(f"{personID:>2}. {lastName:<15} {name:<10} -- {phone:<15}")
-
-    print(splitLine)
 
 
 def showContacts(fileName):  
@@ -49,7 +51,8 @@ def addContact(fileName):
         res = ""
         res += input("Введите фамилию: ") + ","
         res += input("Введите имя: ") + ","
-        res += input("Введите номер телефона: ")
+        res += input("Введите номер телефона: ") + ","
+        res += input("Введите примечание: ")
 
         file.write(res + "\n")
 
@@ -90,8 +93,9 @@ def changeContact(fileName):
             newLastName = input("Введите новую фамилию: ")
             newName = input("Введите новое имя: ")
             newPhone = input("Введите новый телефон: ")
+            newNotes = input("Введите новое примечание: ")
             data[numberContact - 1] = (
-                newLastName + "," + newName + "," + newPhone + "\n"
+                newLastName + "," + newName + "," + newPhone + "," + newNotes + "\n"
             )
             with open(fileName, "w", encoding="UTF-8") as file:
                 file.write("".join(data))
