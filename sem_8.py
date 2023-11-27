@@ -41,3 +41,4 @@ numbers = "2 12 -4 77 -38 8"
 print(list(filter(lambda x: (len(str(abs(x))) == 2), map(int, numbers.split(" ")))))
 print(list(filter(lambda x: (len(str(abs(int(x)))) == 2), numbers.split(" "))))
 print(list(filter(lambda x: 9 < abs(x) < 100, map(int, numbers.split()))))
+
